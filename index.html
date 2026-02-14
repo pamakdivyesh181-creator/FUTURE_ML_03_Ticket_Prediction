@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Screening System</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+<h2>Resume Screening System</h2>
+
+<form method="POST">
+<input type="text" name="job" placeholder="Enter job skills (example: python machine learning)" required>
+<button type="submit">Screen Candidates</button>
+</form>
+
+{% if best %}
+<h3>Best Candidate: {{ best }}</h3>
+{% endif %}
+
+{% if tables is not none %}
+<div class="table">
+{{ tables.to_html(classes="data") | safe }}
+</div>
+{% endif %}
+
+</div>
+
+</body>
+</html>
